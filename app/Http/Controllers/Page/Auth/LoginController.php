@@ -54,16 +54,17 @@ class LoginController extends Controller
     public function postLogin(LoginRequest $request)
     {
         $data = $request->except('_token');
+
         $user = $this->user->getInfoEmail($data['email']);
 
         if (!$user) {
-            return redirect()->back()->with('danger', 'Thông tin tài khoản không tồn tại');
+            return redirect()->back()->with('error', 'Thông tin tài khoản không tồn tại');
         }
 
         if (Auth::guard('users')->attempt($data)) {
             return redirect()->route('page.home')->with('success', 'Đăng nhập thành công thành công');
         }
-        return redirect()->back()->with('danger', 'Đăng nhập thất bại.');
+        return redirect()->back()->with('error', 'Đăng nhập thất bại.');
     }
 
     public function logout()

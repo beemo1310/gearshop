@@ -41,8 +41,8 @@
                 </div>
                 <!-- /.card -->
             </div>
-            <?php //dd($errors) ?>
-            <!-- /.col -->
+        <?php //dd($errors) ?>
+        <!-- /.col -->
             <div class="col-md-9">
                 <div class="card">
                     <div class="card-body">
@@ -62,15 +62,18 @@
                                         <span class="text-danger "><p class="mg-t-5">{{ $errors->first('name') }}</p></span>
                                     </div>
                                 </div>
-                                @if( !isset($user->password) && empty($user->password))
-                                    <div class="form-group row {{ $errors->has('password') ? 'has-error' : '' }}">
-                                        <label for="inputName2" class="col-sm-2 col-form-label">Mật khẩu  <sup class="title-sup">(*)</sup></label>
-                                        <div class="col-sm-10">
-                                            <input type="text" name="password" class="form-control" value="" id="exampleInputEmail1" placeholder="Mật khẩu">
-                                        </div>
-                                        <span class="text-danger"><p class="mg-t-5">{{ $errors->first('password') }}</p></span>
+                                <div class="form-group row {{ $errors->has('password') ? 'has-error' : '' }}">
+                                    <label for="inputName2" class="col-sm-2 col-form-label">Mật khẩu  <sup class="title-sup">(*)</sup></label>
+                                    <div class="col-sm-10">
+                                        <input type="password" name="password" class="form-control" value="{{old('password', isset($user->password) ? $user->password : '')}}" id="exampleInputEmail1" placeholder="Mật khẩu">
+{{--                                        <input type="text" name="password" class="form-control" value="" id="exampleInputEmail1" placeholder="Mật khẩu">--}}
+                                        @if (isset($user))
+                                            <p class="text-danger">Để trống nếu không cập nhật mật khẩu</p>
+                                        @endif
                                     </div>
-                                @endif
+
+                                    <span class="text-danger"><p class="mg-t-5">{{ $errors->first('password') }}</p></span>
+                                </div>
                                 <div class="form-group row">
                                     <label for="inputName2" class="col-sm-2 col-form-label">Phone  <sup class="title-sup">(*)</sup></label>
                                     <div class="col-sm-10">

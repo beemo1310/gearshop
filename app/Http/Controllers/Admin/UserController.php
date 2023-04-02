@@ -118,20 +118,23 @@ class UserController extends Controller
     public function update(UserRequest $request, $id)
     {
         //
+
         \DB::beginTransaction();
         try {
             $user = User::find($id);
-            $user->name = $request->name;
-            $user->email = $request->email;
-            $user->phone = $request->phone;
-            $user->status = $request->status;
+            $data = $request->except('images', '_token', 'password');
 
             if (isset($request->images) && !empty($request->images)) {
                 $image = upload_image('images');
                 if ($image['code'] == 1)
-                    $user->avatar = $image['name'];
+                    $data['avatar'] = $image['name'];
             }
-            if ($user->save()) {
+
+            if (!empty($request->password)) {
+                $data['password'] = bcrypt($request->password);
+            }
+
+            if ($user->update($data)) {
                 \DB::table('role_user')->where('user_id', $id)->delete();
                 \DB::table('role_user')->insert(['role_id'=> $request->role, 'user_id'=> $user->id]);
             }
