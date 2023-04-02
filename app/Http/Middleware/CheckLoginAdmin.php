@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Support\Facades\Auth;
 
 class CheckLoginAdmin
 {
@@ -15,7 +16,7 @@ class CheckLoginAdmin
      */
     public function handle($request, Closure $next)
     {
-        if (get_data_user('web')) {
+        if (Auth::check('web')) {
             return $next($request);
         }
         return redirect()->route('admin.login');
