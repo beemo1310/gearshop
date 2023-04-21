@@ -116,7 +116,7 @@
                             @if ($numberSize > 0)
                             <div class="flex-w flex-r-m p-b-10">
                                 <div class="size-203 flex-c-m respon6">
-                                    Size
+                                    Kích Thước
                                 </div>
 
                                 <div class="size-204 respon6-next">
@@ -139,7 +139,7 @@
                             @if ($numberColor > 0)
                             <div class="flex-w flex-r-m p-b-10">
                                 <div class="size-203 flex-c-m respon6">
-                                    Color
+                                    Màu
                                 </div>
 
                                 <div class="size-204 respon6-next">

@@ -77,6 +77,8 @@
                     <tr>
                         <th>STT</th>
                         <th>Sản phẩm</th>
+                        <th>Màu</th>
+                        <th>Kích thước</th>
                         <th class="text-center">Số lượng</th>
                         <th>Giá</th>
                         <th>Tổng tiền</th>
@@ -92,14 +94,16 @@
                                         <td style="vertical-align: middle;">{{ $key + 1 }}</td>
                                         <td style="vertical-align: middle;">
                                             {{$product->pc_name}}
-                                            <ul class="list-invoice">
-                                                @if ($product->pc_color)
-                                                <li>Color : {{ $product->pc_color}}</li>
-                                                @endif
-                                                @if ($product->pc_size)
-                                                <li>Size : {{ $product->pc_size}}</li>
-                                                @endif
-                                            </ul>
+                                        </td>
+                                        <td class="text-center" style="vertical-align: middle;">
+                                            @if ($product->pc_color)
+                                                <span>{{ $product->pc_color}}</span>
+                                            @endif
+                                        </td>
+                                        <td class="text-center" style="vertical-align: middle;">
+                                            @if ($product->pc_size)
+                                                <span>{{ $product->pc_size}}</span>
+                                            @endif
                                         </td>
                                         <td class="text-center" style="vertical-align: middle;">{{ $product->pc_qty }}</td>
                                         <td style="vertical-align: middle;">

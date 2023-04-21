@@ -11,15 +11,16 @@
             <a href="{{ route('product.detail', ['id' => $product->pc_product_id , 'slug' => safeTitle($product->pc_name) ]) }}" class="header-cart-item-name hov-cl1 trans-04">
                 {{$product->pc_name}}
             </a>
-            <span class="header-cart-item-info">
-                Color : {{ $product->pc_color}}
-            </span>
-            <!-- <span class="header-cart-item-info">
-                            Size : {{ $product->pc_size}}
-                        </span>
-                        <span class="header-cart-item-info">
-                            Áo hoặc bộ : {{ $product->pc_clothes}}
-                        </span> -->
+            @if($product->pc_color)
+                <span class="header-cart-item-info">
+                    Màu : {{ $product->pc_color}}
+                </span>
+            @endif
+            @if ($product->pc_size)
+                <span class="header-cart-item-info">
+                    Kích thước : {{ $product->pc_size}}
+                </span>
+            @endif
             <span class="header-cart-item-info">
                 <?php
                 if ($product->pc_sale) {

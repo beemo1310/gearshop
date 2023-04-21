@@ -40,10 +40,10 @@
                                                         {{$product->pc_name}}
                                                         <ul class="list-invoice">
                                                             @if ($product->pc_color)
-                                                                <li>Color : {{ $product->pc_color}}</li>
+                                                                <li>Màu : {{ $product->pc_color}}</li>
                                                             @endif
                                                             @if ($product->pc_size)
-                                                                <li>Size : {{ $product->pc_size}}</li>
+                                                                <li>Kích thước : {{ $product->pc_size}}</li>
                                                             @endif
                                                         </ul>
                                                     </td>

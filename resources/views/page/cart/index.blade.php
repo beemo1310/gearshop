@@ -30,15 +30,16 @@
                                     </td>
                                     <td class="column-2">
                                         {{$product->pc_name}}
-                                        <span class="header-cart-item-info">
-                                            Color : {{ $product->pc_color}}
+                                        @if($product->pc_color)
+                                            <span class="header-cart-item-info">
+                                            Màu : {{ $product->pc_color}}
                                         </span>
-                                        <!-- <span class="header-cart-item-info">
-                                                        Size : {{ $product->pc_size}}
-                                                    </span>
-                                                    <span class="header-cart-item-info">
-                                                        Áo hoặc bộ : {{ $product->pc_clothes}}
-                                                    </span> -->
+                                        @endif
+                                        @if ($product->pc_size)
+                                            <span class="header-cart-item-info">
+                                            Kích thước : {{ $product->pc_size}}
+                                        </span>
+                                        @endif
                                     </td>
                                     <td class="column-3 text-center">
                                         <?php

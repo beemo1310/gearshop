@@ -72,7 +72,7 @@
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                    <table class="table table-hover text-nowrap table-bordered">
+                    <table class="table table-hover table-bordered">
                         <thead>
                             <tr>
                                 <th width="4%" class=" text-center">STT</th>
@@ -81,7 +81,7 @@
                                 <th>PT thanh toán</th>
                                 <th class=" text-center">Thời gian</th>
                                 <th>Trạng thái</th>
-                                <th class=" text-center">Hành động</th>
+                                <th class=" text-center" width="15%">Hành động</th>
                             </tr>
                         </thead>
                         <tbody>
