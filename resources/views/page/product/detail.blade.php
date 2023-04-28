@@ -159,29 +159,29 @@
                                 </div>
                             </div>
                             @endif
-                            @if ($numberClothes > 0)
-                            <div class="flex-w flex-r-m p-b-10">
-                                <div class="size-203 flex-c-m respon6">
-                                    Áo hoặc bộ
-                                </div>
+{{--                            @if ($numberClothes > 0)--}}
+{{--                            <div class="flex-w flex-r-m p-b-10">--}}
+{{--                                <div class="size-203 flex-c-m respon6">--}}
+{{--                                    Áo hoặc bộ--}}
+{{--                                </div>--}}
 
-                                <div class="size-204 respon6-next">
-                                    <div class="rs1-select2 bor8 bg0">
-                                        <select class="js-select2 clothes_product" name="time" url="{{ route('get.price.product', $product->id) }}">
-                                            <option value="">Lựa chọn</option>
-                                            @if (isset($product->attributes) && $product->attributes->count() > 0)
-                                                @foreach($product->attributes as $key => $attribute)
-                                                    @if ($attribute->v_attribute_id == 3)
-                                                        <option value="{{ $attribute->id }}">{{ $attribute->v_name }}</option>
-                                                    @endif
-                                                @endforeach
-                                            @endif
-                                        </select>
-                                        <div class="dropDownSelect2"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            @endif
+{{--                                <div class="size-204 respon6-next">--}}
+{{--                                    <div class="rs1-select2 bor8 bg0">--}}
+{{--                                        <select class="js-select2 clothes_product" name="time" url="{{ route('get.price.product', $product->id) }}">--}}
+{{--                                            <option value="">Lựa chọn</option>--}}
+{{--                                            @if (isset($product->attributes) && $product->attributes->count() > 0)--}}
+{{--                                                @foreach($product->attributes as $key => $attribute)--}}
+{{--                                                    @if ($attribute->v_attribute_id == 3)--}}
+{{--                                                        <option value="{{ $attribute->id }}">{{ $attribute->v_name }}</option>--}}
+{{--                                                    @endif--}}
+{{--                                                @endforeach--}}
+{{--                                            @endif--}}
+{{--                                        </select>--}}
+{{--                                        <div class="dropDownSelect2"></div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            @endif--}}
                             <input type="hidden" class="price_product">
                             <input type="hidden" class="name_clothes">
                             <div class="flex-w flex-r-m p-b-10">
@@ -220,25 +220,25 @@
                         </div>
 
                         <!--  -->
-                        {{--<div class="flex-w flex-m p-l-100 p-t-40 respon7">--}}
-                            {{--<div class="flex-m bor9 p-r-10 m-r-11">--}}
-                                {{--<a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 js-addwish-detail tooltip100" data-tooltip="Add to Wishlist">--}}
-                                    {{--<i class="zmdi zmdi-favorite"></i>--}}
-                                {{--</a>--}}
-                            {{--</div>--}}
+                        <div class="flex-w flex-m p-l-100 p-t-40 respon7">
+                            <div class="flex-m bor9 p-r-10 m-r-11">
+                                <a href="" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 js-addwish-detail tooltip100" data-tooltip="Add to Wishlist">
+                                    <i class="zmdi zmdi-favorite"></i>
+                                </a>
+                            </div>
 
-                            {{--<a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Facebook">--}}
-                                {{--<i class="fa fa-facebook"></i>--}}
-                            {{--</a>--}}
+                            <a href="https://www.facebook.com/beemo.1310" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Facebook">
+                                <i class="fa fa-facebook"></i>
+                            </a>
 
-                            {{--<a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Twitter">--}}
-                                {{--<i class="fa fa-twitter"></i>--}}
-                            {{--</a>--}}
+                            <a href="https://www.instagram.com/_13eugene.ng" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Instagram">
+                                <i class="fa fa-instagram"></i>
+                            </a>
 
-                            {{--<a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Google Plus">--}}
-                                {{--<i class="fa fa-google-plus"></i>--}}
-                            {{--</a>--}}
-                        {{--</div>--}}
+                            <a href="" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Google Plus">
+                                <i class="fa fa-google-plus"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -256,9 +256,9 @@
                             <a class="nav-link" data-toggle="tab" href="#information" role="tab">Thông tin</a>
                         </li>
 
-                        {{--<li class="nav-item p-b-10">--}}
-                            {{--<a class="nav-link" data-toggle="tab" href="#reviews" role="tab">Bình luận</a>--}}
-                        {{--</li>--}}
+                        <li class="nav-item p-b-10">
+                            <a class="nav-link" data-toggle="tab" href="#reviews" role="tab">Bình luận</a>
+                        </li>
                     </ul>
 
                     <!-- Tab panes -->
@@ -285,18 +285,18 @@
                             </div>
                         </div>
 
-                        {{--<!-- - -->--}}
-                        {{--<div class="tab-pane fade" id="reviews" role="tabpanel">--}}
-                            {{--<div class="row">--}}
-                                {{--<div class="col-sm-12 col-md-12 col-lg-12 m-lr-auto">--}}
-                                    {{--<div class="how-pos2 p-lr-15-md">--}}
-                                        {{--<div id="fb-root"></div>--}}
-                                        {{--<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v10.0" nonce="jyYgKKgU"></script>--}}
-                                        {{--<div class="fb-comments" data-href="http://shopquanaonu.abc/" data-width="100%" data-numposts="5"></div>--}}
-                                    {{--</div>--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
+                        <!-- - -->
+                        <div class="tab-pane fade" id="reviews" role="tabpanel">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12 col-lg-12 m-lr-auto">
+                                    <div class="how-pos2 p-lr-15-md">
+                                        <div id="fb-root"></div>
+                                        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v10.0" nonce="jyYgKKgU"></script>
+                                        <div class="fb-comments" data-href="http://shopquanaonu.abc/" data-width="100%" data-numposts="5"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
