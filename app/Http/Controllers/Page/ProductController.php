@@ -71,7 +71,25 @@ class ProductController extends Controller
             ]);
 
         } else {
-            $products = $products->orderByDesc('id')->limit(NUMBER_PAGINATION_PAGE)->get();
+            if ($request->sort_price) {
+                $arrayPrice = explode('-', $request->sort_price);
+                if (count($arrayPrice) > 1) {
+                    $products->whereBetween('pro_price', $arrayPrice);
+                }
+
+            }
+
+            if ($request->sort) {
+                $arrayOrderBy = explode('-', $request->sort);
+                if (count($arrayOrderBy) > 1) {
+                    $products->orderBy($arrayOrderBy[0], $arrayOrderBy[1]);
+                }
+
+            } else {
+                $products->orderByDesc('id');
+            }
+
+            $products = $products->limit(NUMBER_PAGINATION_PAGE)->get();
             $viewData = [
                 'products' => $products,
                 'loadMore' => $countProduct > NUMBER_PAGINATION_PAGE ? true : false,

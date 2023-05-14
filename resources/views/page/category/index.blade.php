@@ -29,16 +29,16 @@
                 </div>
 
                 <div class="flex-w flex-c-m m-tb-10">
-                    {{--<div class="flex-c-m stext-106 cl6 size-104 bor4 pointer hov-btn3 trans-04 m-r-8 m-tb-4 js-show-filter show-filter">--}}
-                        {{--<i class="icon-filter cl2 m-r-6 fs-15 trans-04 zmdi zmdi-filter-list"></i>--}}
-                        {{--<i class="icon-close-filter cl2 m-r-6 fs-15 trans-04 zmdi zmdi-close dis-none"></i>--}}
-                        {{--Filter--}}
-                    {{--</div>--}}
+                    <div class="flex-c-m stext-106 cl6 size-104 bor4 pointer hov-btn3 trans-04 m-r-8 m-tb-4 js-show-filter show-filter">
+                        <i class="icon-filter cl2 m-r-6 fs-15 trans-04 zmdi zmdi-filter-list"></i>
+                        <i class="icon-close-filter cl2 m-r-6 fs-15 trans-04 zmdi zmdi-close dis-none"></i>
+                        Lọc giá trị
+                    </div>
 
                     {{--<div class="flex-c-m stext-106 cl6 size-105 bor4 pointer hov-btn3 trans-04 m-tb-4 js-show-search">--}}
-                        {{--<i class="icon-search cl2 m-r-6 fs-15 trans-04 zmdi zmdi-search"></i>--}}
-                        {{--<i class="icon-close-search cl2 m-r-6 fs-15 trans-04 zmdi zmdi-close dis-none"></i>--}}
-                        {{--Tìm kiếm--}}
+                    {{--<i class="icon-search cl2 m-r-6 fs-15 trans-04 zmdi zmdi-search"></i>--}}
+                    {{--<i class="icon-close-search cl2 m-r-6 fs-15 trans-04 zmdi zmdi-close dis-none"></i>--}}
+                    {{--Tìm kiếm--}}
                     {{--</div>--}}
                 </div>
 
@@ -53,86 +53,88 @@
                 </div>
 
                 <!-- Filter -->
-                {{--<div class="dis-none panel-filter w-full p-t-10" style="display: none;">--}}
-                    {{--<div class="wrap-filter flex-w bg6 w-full p-lr-40 p-t-27 p-lr-15-sm">--}}
-                        {{--<div class="filter-col1 p-r-15 p-b-27">--}}
-                            {{--<div class="mtext-102 cl2 p-b-15">--}}
-                                {{--Sort By--}}
-                            {{--</div>--}}
-                            {{--<ul>--}}
-                                {{--@foreach($sortBy as $key => $sort)--}}
-                                    {{--<li class="p-b-6">--}}
-                                        {{--<a href="#" class="filter-link stext-106 trans-04">--}}
-                                            {{--<label for="{{$key}}"><input type="radio" id="{{$key}}" name="sort_by" value="{{$key}}" class="checkboxFilter">  {{ $sort }}</label>--}}
-                                        {{--</a>--}}
-                                    {{--</li>--}}
-                                {{--@endforeach--}}
-                            {{--</ul>--}}
-                        {{--</div>--}}
+                <div class="dis-none panel-filter w-full p-t-10" style="display: none;">
+                    <div class="wrap-filter flex-w bg6 w-full p-lr-40 p-t-27 p-lr-15-sm">
+                        @php $currentUrl = Request::url() @endphp
+                        <div class="filter-col1 p-r-15 p-b-27">
+                            <div class="mtext-102 cl2 p-b-15">
+                                Sắp xêp
+                            </div>
+                            <ul>
+                                @foreach($sortBy as $key => $sort)
+                                    <li class="p-b-6">
+                                        <a href="{{ $currentUrl.'?sort='.$key  }}" class="filter-link stext-106 trans-04">
+                                            {{ $sort }}
+                                        </a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
 
-                        {{--<div class="filter-col1 p-r-15 p-b-27">--}}
-                            {{--<div class="mtext-102 cl2 p-b-15">--}}
-                                {{--Price--}}
-                            {{--</div>--}}
+                        <div class="filter-col1 p-r-15 p-b-27">
+                            <div class="mtext-102 cl2 p-b-15">
+                                Lọc theo giá
+                            </div>
 
-                            {{--<ul>--}}
-                                {{--@foreach($sortPrice as $key => $price)--}}
-                                    {{--<li class="p-b-6">--}}
-                                        {{--<a href="#" class="filter-link stext-106 trans-04">--}}
-                                            {{--<label for="{{$key}}"><input type="radio" id="{{$key}}" name="sort_price" value="{{$key}}" class="checkboxFilter">  {{ $price }}</label>--}}
-                                        {{--</a>--}}
-                                    {{--</li>--}}
-                                {{--@endforeach--}}
-                            {{--</ul>--}}
-                        {{--</div>--}}
+                            <ul>
+                                @foreach($sortPrice as $key => $price)
+                                    <li class="p-b-6">
+                                        <a href="{{ $currentUrl.'?sort_price='.$key  }}" class="filter-link stext-106 trans-04">
+                                            {{ $price }}
+                                        </a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+
 
                         {{--<div class="filter-col1 p-l-30 p-b-27">--}}
-                            {{--<div class="mtext-102 cl2 p-b-15 p-l-30">--}}
-                                {{--Size--}}
-                            {{--</div>--}}
+                        {{--<div class="mtext-102 cl2 p-b-15 p-l-30">--}}
+                        {{--Size--}}
+                        {{--</div>--}}
 
-                            {{--<ul class="p-l-30">--}}
-                                {{--@foreach($sizes as $key => $size)--}}
-                                    {{--<li class="p-b-6">--}}
-                                        {{--<a href="#" class="filter-link stext-106 trans-04">--}}
-                                            {{--<label for="{{$size->v_slug}}"><input type="checkbox" id="{{$size->v_slug}}" name="sizes" value="{{$size->id}}" class="checkboxFilter">  {{ $size->v_name  }}</label>--}}
-                                        {{--</a>--}}
-                                    {{--</li>--}}
-                                {{--@endforeach--}}
-                            {{--</ul>--}}
+                        {{--<ul class="p-l-30">--}}
+                        {{--@foreach($sizes as $key => $size)--}}
+                        {{--<li class="p-b-6">--}}
+                        {{--<a href="#" class="filter-link stext-106 trans-04">--}}
+                        {{--<label for="{{$size->v_slug}}"><input type="checkbox" id="{{$size->v_slug}}" name="sizes" value="{{$size->id}}" class="checkboxFilter">  {{ $size->v_name  }}</label>--}}
+                        {{--</a>--}}
+                        {{--</li>--}}
+                        {{--@endforeach--}}
+                        {{--</ul>--}}
                         {{--</div>--}}
                         {{--<div class="filter-col1 p-r-15 p-b-27 p-l-30">--}}
-                            {{--<div class="mtext-102 cl2 p-b-15 p-l-30">--}}
-                                {{--Color--}}
-                            {{--</div>--}}
+                        {{--<div class="mtext-102 cl2 p-b-15 p-l-30">--}}
+                        {{--Color--}}
+                        {{--</div>--}}
 
-                            {{--<ul class="p-l-30">--}}
-                                {{--@foreach($colors as $key => $color)--}}
-                                    {{--<li class="p-b-6">--}}
-                                        {{--<a href="#" class="filter-link stext-106 trans-04">--}}
-                                            {{--<label for="{{$color->v_slug}}"><input type="checkbox" id="{{$color->v_slug}}" name="colors" value="{{$color->id}}" class="checkboxFilter">  {{ $color->v_name  }}</label>--}}
-                                        {{--</a>--}}
-                                    {{--</li>--}}
-                                {{--@endforeach--}}
-                            {{--</ul>--}}
+                        {{--<ul class="p-l-30">--}}
+                        {{--@foreach($colors as $key => $color)--}}
+                        {{--<li class="p-b-6">--}}
+                        {{--<a href="#" class="filter-link stext-106 trans-04">--}}
+                        {{--<label for="{{$color->v_slug}}"><input type="checkbox" id="{{$color->v_slug}}" name="colors" value="{{$color->id}}" class="checkboxFilter">  {{ $color->v_name  }}</label>--}}
+                        {{--</a>--}}
+                        {{--</li>--}}
+                        {{--@endforeach--}}
+                        {{--</ul>--}}
                         {{--</div>--}}
 
                         {{--<div class="filter-col1 p-b-27">--}}
-                            {{--<div class="mtext-102 cl2 p-b-15">--}}
-                                {{--Thương hiệu--}}
-                            {{--</div>--}}
-                            {{--<ul class="p-l-30">--}}
-                                {{--@foreach($trademarks as $key => $trademark)--}}
-                                    {{--<li class="p-b-6">--}}
-                                        {{--<a href="#" class="filter-link stext-106 trans-04">--}}
-                                            {{--<label for="{{$trademark->id}}"><input type="checkbox" id="{{$trademark->id}}" name="sizes" value="{{$trademark->id}}" class="checkboxFilter">  {{ $trademark->td_name  }}</label>--}}
-                                        {{--</a>--}}
-                                    {{--</li>--}}
-                                {{--@endforeach--}}
-                            {{--</ul>--}}
+                        {{--<div class="mtext-102 cl2 p-b-15">--}}
+                        {{--Thương hiệu--}}
                         {{--</div>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
+                        {{--<ul class="p-l-30">--}}
+                        {{--@foreach($trademarks as $key => $trademark)--}}
+                        {{--<li class="p-b-6">--}}
+                        {{--<a href="#" class="filter-link stext-106 trans-04">--}}
+                        {{--<label for="{{$trademark->id}}"><input type="checkbox" id="{{$trademark->id}}" name="sizes" value="{{$trademark->id}}" class="checkboxFilter">  {{ $trademark->td_name  }}</label>--}}
+                        {{--</a>--}}
+                        {{--</li>--}}
+                        {{--@endforeach--}}
+                        {{--</ul>--}}
+                        {{--</div>--}}
+                    </div>
+                </div>
             </div>
 
             <div class="row list-product-category">
@@ -143,13 +145,13 @@
 
             <!-- Load more -->
             @if ($loadMore)
-            <div class="flex-c-m flex-w w-full p-t-45">
-                <a href="{{ route('page.category.index', ['id' => $currentCategory->id, 'slug' => $currentCategory->c_slug]) }}"
-                   numberPage="{{ $numberPage }}"
-                   class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04 load-more">
-                    Xem thêm
-                </a>
-            </div>
+                <div class="flex-c-m flex-w w-full p-t-45">
+                    <a href="{{ route('page.category.index', ['id' => $currentCategory->id, 'slug' => $currentCategory->c_slug]) }}"
+                       numberPage="{{ $numberPage }}"
+                       class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04 load-more">
+                        Xem thêm
+                    </a>
+                </div>
             @endif
         </div>
     </div>
