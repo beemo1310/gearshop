@@ -49,7 +49,8 @@ class Category extends Model
         return $this->hasMany(self::class, 'c_parent_id', 'id');
     }
 
-    public function parent(){
+    public function parent()
+    {
         return $this->hasOne(self::class, 'id', 'c_parent_id')->select('id', 'c_name');
     }
 
@@ -68,7 +69,7 @@ class Category extends Model
      * @param string $id
      * @return mixed
      */
-    public function createOrUpdate($request , $id ='')
+    public function createOrUpdate($request, $id ='')
     {
         $params = $request->except(['images', '_token']);
         if (isset($request->images) && !empty($request->images)) {
