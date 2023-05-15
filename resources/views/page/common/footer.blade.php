@@ -83,13 +83,13 @@
 
         </div>
     </div>
+    <div class="zalo-chat-widget" data-oaid="1767023085875024842" data-welcome-message="Rất vui khi được hỗ trợ bạn!" data-autopopup="10" data-width="600" data-height="300" style="margin-bottom: 45px; margin-right: -25px"></div>
+    <script src="https://sp.zalo.me/plugins/sdk.js"> </script>
+
     <!-- Messenger Plugin chat Code -->
     <div id="fb-root"></div>
-
     <!-- Your Plugin chat code -->
-    <div id="fb-customer-chat" class="fb-customerchat">
-    </div>
-
+    <div id="fb-customer-chat" class="fb-customerchat" style="margin-bottom: 70px;"></div>
     <script>
         var chatbox = document.getElementById('fb-customer-chat');
         chatbox.setAttribute("page_id", "107164875490542");
