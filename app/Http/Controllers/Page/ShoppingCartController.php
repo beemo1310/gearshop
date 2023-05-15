@@ -1,6 +1,5 @@
 <?php
-
-namespace App\Http\Controllers\Page;;
+namespace App\Http\Controllers\Page;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;

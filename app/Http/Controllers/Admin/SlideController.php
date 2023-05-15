@@ -9,7 +9,6 @@ use App\Http\Requests\SlideRequest;
 class SlideController extends Controller
 {
     protected $slide;
-
     /**
      * constructor.
      */

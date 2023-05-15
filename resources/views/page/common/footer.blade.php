@@ -9,8 +9,8 @@
                 </h4>
 
                 <p class="stext-107 cl7 size-201">
-                    {{--Any questions? Let us know in store at 8th floor, 379 Hudson St, New York, NY 10018 or call us--}}
-                    {{--on (+1) 96 716 6879--}}
+                {{--Any questions? Let us know in store at 8th floor, 379 Hudson St, New York, NY 10018 or call us--}}
+                {{--on (+1) 96 716 6879--}}
                 </p>
             </div>
 
@@ -83,7 +83,8 @@
 
         </div>
     </div>
-    <div class="zalo-chat-widget" data-oaid="1767023085875024842" data-welcome-message="Rất vui khi được hỗ trợ bạn!" data-autopopup="10" data-width="600" data-height="300" style="margin-bottom: 45px; margin-right: -25px"></div>
+    <div class="zalo-chat-widget" data-oaid="1767023085875024842" data-welcome-message="Rất vui khi được hỗ trợ bạn!"
+         data-autopopup="10" data-width="600" data-height="300" style="margin-bottom: 45px; margin-right: -25px"></div>
     <script src="https://sp.zalo.me/plugins/sdk.js"> </script>
 
     <!-- Messenger Plugin chat Code -->

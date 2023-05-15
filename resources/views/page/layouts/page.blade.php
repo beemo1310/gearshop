@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title></title>
     @include('page.common.head')
 </head>
 

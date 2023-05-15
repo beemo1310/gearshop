@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
@@ -58,8 +57,8 @@ class RoleController extends Controller
             $role->display_name = $request->name;
 
             if ($role->save()) {
-                if(!empty($request->permissions)) {
-                    foreach($request->permissions as $permission) {
+                if (!empty($request->permissions)) {
+                    foreach ($request->permissions as $permission) {
                         \DB::table('permission_role')->insert(['permission_id'=> $permission, 'role_id'=> $role->id]);
                     }
                 }
@@ -86,7 +85,7 @@ class RoleController extends Controller
         $listPermission = \DB::table('permission_role')->where('role_id', $id)->pluck('permission_id')->toArray();
         $permissionGroups = GroupPermission::select('*')->with('permissions')->get();
 
-        if(!$role) {
+        if (!$role) {
             return redirect()->route('get.list.role')->with('danger', 'Quyền không tồn tại');
         }
         $viewData = [
@@ -115,10 +114,10 @@ class RoleController extends Controller
             $role->display_name = $request->name;
 
             if ($role->save()) {
-                if(!empty($request->permissions)) {
+                if (!empty($request->permissions)) {
                     \DB::table('permission_role')->where('role_id', $id)->delete();
-                    if(!empty($request->permissions)) {
-                        foreach($request->permissions as $permission) {
+                    if (!empty($request->permissions)) {
+                        foreach ($request->permissions as $permission) {
                             \DB::table('permission_role')->insert(['permission_id'=> $permission, 'role_id'=> $role->id]);
                         }
                     }

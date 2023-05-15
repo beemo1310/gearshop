@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
@@ -26,7 +25,7 @@ class PermissionController extends Controller
     {
         //
         $permissions = Permission::with([
-            'groups' => function($groups)
+            'groups' => function ($groups)
             {
                 $groups->select('id', 'name');
             }
@@ -127,12 +126,11 @@ class PermissionController extends Controller
         }
     }
 
-    public function createOrUpdate($request , $id ='')
+    public function createOrUpdate($request, $id ='')
     {
         $permission = new Permission();
 
-        if ($id)
-        {
+        if ($id) {
             $permission = Permission::findOrFail($id);
         }
 

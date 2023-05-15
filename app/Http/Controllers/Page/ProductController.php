@@ -45,7 +45,7 @@ class ProductController extends Controller
             $id = $request->id;
             $currentCategory = Category::find($id);
 
-            if ($currentCategory->c_parent_id == NULL) {
+            if ($currentCategory->c_parent_id == null) {
                 $categoryId = $currentCategory->children->pluck('id')->toArray();
                 $categoryId = array_merge($categoryId, [intval($id)]);
             } else {
@@ -113,7 +113,7 @@ class ProductController extends Controller
         if ($idCate) {
             $currentCategory = Category::find($idCate);
 
-            if ($currentCategory->c_parent_id == NULL) {
+            if ($currentCategory->c_parent_id == null) {
                 $categoryId = $currentCategory->children->pluck('id')->toArray();
                 $categoryId = array_merge($categoryId, [intval($idCate)]);
 
@@ -145,7 +145,7 @@ class ProductController extends Controller
             $id = $request->id;
             $currentCategory = Category::find($id);
 
-            if ($currentCategory->c_parent_id == NULL) {
+            if ($currentCategory->c_parent_id == null) {
                 $categoryId = $currentCategory->children->pluck('id')->toArray();
                 $categoryId = array_merge($categoryId, [intval($id)]);
             } else {
@@ -210,7 +210,7 @@ class ProductController extends Controller
 
             return response([
                 'code' => 200,
-                'price_format' => number_format($productValues->pv_price,0,',','.') . ' vnđ' ,
+                'price_format' => number_format($productValues->pv_price, 0, ',', '.') . ' vnđ' ,
                 'price' => $productValues->pv_price,
                 'name_clothes' => $value->v_name,
                 'message' => 'Thành công'

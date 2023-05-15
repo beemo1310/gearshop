@@ -31,7 +31,7 @@ class CategoryController extends Controller
         if ($id) {
             $currentCategory = Category::find($id);
 
-            if ($currentCategory->c_parent_id == NULL) {
+            if ($currentCategory->c_parent_id == null) {
                 $categoryId = $currentCategory->children->pluck('id')->toArray();
                 $categoryId = array_merge($categoryId, [intval($id)]);
                 $category = Category::with('children')->find($id);

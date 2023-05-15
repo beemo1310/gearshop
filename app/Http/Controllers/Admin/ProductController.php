@@ -17,7 +17,13 @@ class ProductController extends Controller
     /**
      * constructor.
      */
-    public function __construct(Product $product, Attribute $attribute, Category $category, Trademark $trademark, Type $type)
+    public function __construct(
+        Product $product,
+        Attribute $attribute,
+        Category $category,
+        Trademark $trademark,
+        Type $type
+    )
     {
 
         view()->share([

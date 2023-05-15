@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
@@ -124,12 +123,11 @@ class GroupPermissionController extends Controller
         }
     }
 
-    public function createOrUpdate($request , $id ='')
+    public function createOrUpdate($request, $id ='')
     {
         $groupPermission = new GroupPermission();
 
-        if ($id)
-        {
+        if ($id) {
             $groupPermission = GroupPermission::findOrFail($id);
         }
 

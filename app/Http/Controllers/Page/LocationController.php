@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers\Page;
 
 use Illuminate\Http\Request;
@@ -10,29 +9,25 @@ class LocationController extends Controller
 {
     public function loadData(Request $request)
     {
-        if ($request->ajax())
-        {
+        if ($request->ajax()) {
             $id   = $request->id;
             $type = $request->type;
 
             $level = 1;
             $column  = '';
 
-            if ($type)
-            {
-                if ($type == 'district')
-                {
+            if ($type) {
+                if ($type == 'district') {
                     $level = 2;
                     $column = 'loc_city_id';
-                }else
-                {
+                } else {
                     $level = 3;
                     $column = 'loc_district_id';
                 }
 
-                $locations = Locations::where('loc_level',$level)
-                    ->where($column,$id)
-                    ->select('loc_name','id')->get();
+                $locations = Locations::where('loc_level', $level)
+                    ->where($column, $id)
+                    ->select('loc_name', 'id')->get();
 
 
                 $loca = Locations::findOrFail($id);

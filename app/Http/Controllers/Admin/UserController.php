@@ -27,7 +27,7 @@ class UserController extends Controller
     {
         //
         $users = User::with([
-            'userRole' => function($userRole)
+            'userRole' => function ($userRole)
             {
                 $userRole->select('*');
             }
@@ -73,7 +73,7 @@ class UserController extends Controller
             }
 
             \DB::commit();
-            return redirect()->back()->with('success','Thêm mới thành công');
+            return redirect()->back()->with('success', 'Thêm mới thành công');
         } catch (\Exception $exception) {
             \DB::rollBack();
             return redirect()->back()->with('error', 'Đã xảy ra lỗi khi lưu dữ liệu');
@@ -91,13 +91,13 @@ class UserController extends Controller
     {
         //
         $user = User::with([
-            'userRole' => function($userRole)
+            'userRole' => function ($userRole)
             {
                 $userRole->select('*');
             }
         ])->find($id);
         $listRoleUser = \DB::table('role_user')->where('user_id', $id)->first();
-        if(!$user) {
+        if (!$user) {
             return redirect()->route('get.list.user')->with('danger', 'Quyền không tồn tại');
         }
 
@@ -140,7 +140,7 @@ class UserController extends Controller
             }
 
             \DB::commit();
-            return redirect()->back()->with('success','Chỉnh sửa thành công');
+            return redirect()->back()->with('success', 'Chỉnh sửa thành công');
         } catch (\Exception $exception) {
             \DB::rollBack();
             return redirect()->back()->with('error', 'Đã xảy ra lỗi khi lưu dữ liệu');
@@ -164,7 +164,7 @@ class UserController extends Controller
         try {
             $user->delete();
             \DB::commit();
-            return redirect()->back()->with('success','Đã xóa thành công');
+            return redirect()->back()->with('success', 'Đã xóa thành công');
         } catch (\Exception $exception) {
             \DB::rollBack();
             return redirect()->back()->with('error', 'Đã xảy ra lỗi khi lưu dữ liệu');
